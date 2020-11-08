@@ -1,38 +1,57 @@
 {
-  "name": "weather_app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.5",
-    "@testing-library/react": "^11.1.1",
-    "@testing-library/user-event": "^12.2.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-scripts": "4.0.0",
-    "web-vitals": "^0.2.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+    "name": "weather_app",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.11.5",
+        "@testing-library/react": "^11.1.1",
+        "@testing-library/user-event": "^12.2.0",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-scripts": "4.0.0",
+        "web-vitals": "^0.2.4"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Weather app in React using Api call from weatherapi.com",
+    "main": "index.js",
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/harshtiwar9/API_WeatherApp_React.git"
+    },
+    "keywords": [
+        "Weather",
+        "API",
+        "React",
+        "App"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "author": "Harsh Tiwar",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/harshtiwar9/API_WeatherApp_React/issues"
+    },
+    "homepage": "https://github.com/harshtiwar9/API_WeatherApp_React#readme"
 }

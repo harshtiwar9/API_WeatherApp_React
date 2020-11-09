@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'materialize-css'; // It installs the JS asset only
+import 'materialize-css/dist/css/materialize.min.css';
+import {Provider} from 'react-redux';
+import store from './Store/ConfigStore'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 

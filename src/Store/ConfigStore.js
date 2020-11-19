@@ -1,15 +1,9 @@
 import { createStore } from 'redux';
-import axios from 'axios'
 
 const defaultState = {
     currentCity: "",
-    history : [],
-    errorWhileFetch : ""
+    history : []
 }
-
-// const axios = require('axios');
-const dbUrl = "http://api.weatherapi.com/v1/current.json?key=ad07e8abec5d42c693e205826200811";
-// http://api.weatherapi.com/v1/current.json?key=ad07e8abec5d42c693e205826200811&q=toronto
 
 //reducer
 function weatherInfo(state = defaultState, action) {
@@ -24,6 +18,27 @@ function weatherInfo(state = defaultState, action) {
             return {
                 currentWeather: action.data.city,
                 history: newArray
+            }
+
+        break;
+
+        case "removeFromHistory" :
+
+            const removeCityFromHistoryIndex = newCity.history.findIndex(city => city.city.toString().toLowerCase() === action.data.city.toString().toLowerCase());
+            newCity.history.splice(removeCityFromHistoryIndex, 1);
+            let newArray1 = newCity.history;
+
+            return {
+                history : newArray1
+            }
+
+        break;
+
+        case "clearForm":
+            
+            return {
+                currentWeather: "",
+                history: []
             }
 
         break;

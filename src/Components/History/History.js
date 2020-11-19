@@ -1,11 +1,23 @@
 import React, { useEffect } from 'react';
-import { useSelector} from 'react-redux';
+import { useSelector, useDispatch} from 'react-redux';
 import './History.css'
 import M from "materialize-css/dist/js/materialize.min.js";
 
-function History (){
+function History ({onClick}){
 
     let updatedHistory = useSelector(state => state.history);
+    const dispatch = useDispatch();
+
+    const removeFromHistory = (removeCity) => {
+
+        let data = {
+            city : removeCity
+        }
+
+        dispatch({'type': 'removeFromHistory', data: data})
+        onClick()
+
+    }
 
     return(
         
@@ -14,10 +26,11 @@ function History (){
             <hr/>     
             {
                 
-                updatedHistory.map(elm => {
-                    return(<div className="chip">
+                updatedHistory.map((elm,i) => {
+                    return(
+                    <div key={i} className="chip">
                         <span className="city">{elm.city}</span>
-                        <i className="close material-icons">close</i>
+                        <i onClick={() => removeFromHistory(elm.city)} className="close material-icons">close</i>
                     </div>)
                 })
 

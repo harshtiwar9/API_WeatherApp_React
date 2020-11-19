@@ -2,7 +2,8 @@ import { createStore } from 'redux';
 import axios from 'axios'
 
 const defaultState = {
-    currentWeather: [],
+    currentCity: "",
+    history : [],
     errorWhileFetch : ""
 }
 
@@ -13,32 +14,22 @@ const dbUrl = "http://api.weatherapi.com/v1/current.json?key=ad07e8abec5d42c693e
 //reducer
 function weatherInfo(state = defaultState, action) {
 
-    let newWeather = Object.assign({}, state);
+    let newCity = Object.assign({}, state);
 
     switch (action.type) {
-        case "showWeather":
+        case "addToHistory":
+            
+            let newArray = [...newCity.history, action.data];
+            
+            return {
+                currentWeather: action.data.city,
+                history: newArray
+            }
 
-            const city = action.data.city;
-            // console.log(dbUrl+"&q="+city)
-            axios.get(dbUrl+"&q="+city)
-            .then(function(response) {
-                // console.log(typeof(response.data))
-                let newData = [response.data]
-                console.log(newData)
-                return {
-                    currentWeather : newData
-                }
-            })
-            .catch(function(error) {
-                // newWeather.currentWeather(error)
-                return {
-                    errorWhileFetch : error
-                }
-            })
-            break;
+        break;
 
         default:
-            return newWeather.currentWeather;
+            return newCity;
 
     }
     // return newCart;

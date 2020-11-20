@@ -1,3 +1,22 @@
-span.city {
+a.city {
     text-transform: capitalize;
+}
+
+div.chip:hover {
+    background-color: teal;
+    color: white;
+}
+
+a {
+    text-decoration: none !important;
+    color: white;
+}
+
+div.chip:hover a {
+    color: white;
+}
+
+.chipBGonSelect {
+    background-color: teal;
+    color: white;
 }

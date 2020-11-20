@@ -13,11 +13,15 @@ function weatherInfo(state = defaultState, action) {
     switch (action.type) {
         case "addToHistory":
             
-            let newArray = [...newCity.history, action.data];
+            const checkIfAlreadyInHistoryIdex = newCity.history.findIndex(city => city.city.toString().toLowerCase() === action.data.city.toString().toLowerCase());
             
-            return {
-                currentWeather: action.data.city,
-                history: newArray
+            if(checkIfAlreadyInHistoryIdex === -1){
+                let newArray = [...newCity.history, action.data];
+            
+                return {
+                    currentWeather: action.data.city,
+                    history: newArray
+                }
             }
 
         break;

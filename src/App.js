@@ -26,8 +26,10 @@ const dispatch = useDispatch();
 
 const addCityToList = (city) =>{
 
+  // console.log(city.charAt(0).toUpperCase() + city.toLowerCase().slice(1))
+
   let data = {
-      city : city
+      city : city.charAt(0).toUpperCase() + city.toLowerCase().slice(1)
   }
   dispatch({'type': 'addToHistory', data: data})
 }
@@ -43,7 +45,7 @@ const sendingCityNameToRedux = () =>{
             setShowHistoryComponent(true)
           })
           .catch(function(error) {
-            console.log(error)
+            // console.log(error)
             window.M.toast({html: error.response.data.error.message})
           })
 
@@ -78,7 +80,7 @@ const hideHistoryComponent = () => {
             <div className="row">
               <div className="input-field col s9">
                 {/* <input id="location" onBlur={e => setCityName(e.target.value)} type="text" className="validate" /> */}
-                <input id="location" ref={location} type="text" className="validate" required />
+                <input id="location" ref={location} type="text" className="validate location" required />
                 <label htmlfor="location" className="">Search weather for location</label>
               </div>
               <div className="input-field col s2">
@@ -87,22 +89,17 @@ const hideHistoryComponent = () => {
               </div>
               <div className="input-field col s1">
                 {/* <a className="waves-effect waves-light btn" onClick={() => setCity()}>Show</a> */}
-                <button className="btn waves-effect waves-light" type="button" name="action" onClick={() => clearForm()}>Clear</button>
+                <button className="btn waves-effect waves-light" type="button" name="action" onClick={() => clearForm()}>Reset</button>
               </div>
             </div>
           </form>
 
         </div>
-        {/* <div className="card-content">
-          <div className="row">
-            { showComponent != false ? <Weather cityName={location.current.value} cityWeather={cityWeather} /> : "" }
-          </div>
-        </div> */}
       </div>
 
       { showComponent != false ? <Weather cityName={location.current.value} cityWeather={cityWeather} /> : "" }
 
-      { showHistoryComponent != false ? <History onClick={() => hideHistoryComponent()} /> : "" }
+      { showHistoryComponent != false ? <History hideHistoryComponent={() => hideHistoryComponent()} /> : "" }
     </div>
   );
 }

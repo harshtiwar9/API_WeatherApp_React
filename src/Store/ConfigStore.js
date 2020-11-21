@@ -13,9 +13,10 @@ function weatherInfo(state = defaultState, action) {
     switch (action.type) {
         case "addToHistory":
             
+            //check if city already in history
             const checkIfAlreadyInHistoryIdex = newCity.history.findIndex(city => city.city.toString().toLowerCase() === action.data.city.toString().toLowerCase());
             
-            if(checkIfAlreadyInHistoryIdex === -1){
+            if(checkIfAlreadyInHistoryIdex === -1){//not match
                 let newArray = [...newCity.history, action.data];
             
                 return {
@@ -29,7 +30,7 @@ function weatherInfo(state = defaultState, action) {
         case "removeFromHistory" :
 
             const removeCityFromHistoryIndex = newCity.history.findIndex(city => city.city.toString().toLowerCase() === action.data.city.toString().toLowerCase());
-            newCity.history.splice(removeCityFromHistoryIndex, 1);
+            newCity.history.splice(removeCityFromHistoryIndex, 1);//remove the city from history
             let newArray1 = newCity.history;
 
             return {
@@ -39,7 +40,7 @@ function weatherInfo(state = defaultState, action) {
         break;
 
         case "clearForm":
-            
+            //clear evrything
             return {
                 currentWeather: "",
                 history: []
@@ -56,8 +57,5 @@ function weatherInfo(state = defaultState, action) {
 
 var store = createStore(weatherInfo,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-
-// store.subscribe(store.getStore())
-// store.dispatch({type: 'addItem', data: productName})
 
 export default store;

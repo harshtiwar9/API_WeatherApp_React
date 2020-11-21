@@ -7,26 +7,17 @@ import axios from 'axios'
 
 function App() {
 
-let [cityName,setCityName] = useState("");
 let [cityWeather,setCityWeather] = useState([]);
 let [showComponent,setShowComponent] = useState(false);
 let [showHistoryComponent,setShowHistoryComponent] = useState(false);
 let updatedHistory = useSelector(state => state.history);
 
 const location = useRef();
-
 const dbUrl = "http://api.weatherapi.com/v1/forecast.json?key=ad07e8abec5d42c693e205826200811";
-
 const dispatch = useDispatch();
 
-// const handleState = (value) =>{
-//   // alert(e)
-//   setShowComponent(value)
-// }
-
+//adding city to store
 const addCityToList = (city) =>{
-
-  // console.log(city.charAt(0).toUpperCase() + city.toLowerCase().slice(1))
 
   let data = {
       city : city.charAt(0).toUpperCase() + city.toLowerCase().slice(1)
@@ -34,9 +25,10 @@ const addCityToList = (city) =>{
   dispatch({'type': 'addToHistory', data: data})
 }
 
+//calling function to set state for hide or show components and getting response from api
+//sending api response to component
 const sendingCityNameToRedux = () =>{
-  
-  // setCityName(location.current.value)
+
   axios.get(dbUrl+"&q="+location.current.value+"&days=10")
           .then(function(response) {
             addCityToList(location.current.value)
@@ -45,8 +37,13 @@ const sendingCityNameToRedux = () =>{
             setShowHistoryComponent(true)
           })
           .catch(function(error) {
-            // console.log(error)
-            window.M.toast({html: error.response.data.error.message})
+            if(error.response.data.error.code === 1003){
+              window.M.toast({html: "Please enter city name!"})
+            } else if(error.response.data.error.code === 1006){
+              window.M.toast({html: "City not found!"})
+            }else{
+              window.M.toast({html: error.response.data.error.message})
+            }
           })
 
 }
@@ -69,6 +66,25 @@ const hideHistoryComponent = () => {
 
 }
 
+function updateSearch(updateCitySearch){
+
+  axios.get(dbUrl+"&q="+updateCitySearch+"&days=10")
+          .then(function(response) {
+            location.current.value = updateCitySearch;
+            setCityWeather(response.data) 
+          })
+          .catch(function(error) {
+            if(error.response.data.error.code === 1003){
+              window.M.toast({html: "Please enter city name!"})
+            } else if(error.response.data.error.code === 1006){
+              window.M.toast({html: "City not found!"})
+            }else{
+              window.M.toast({html: error.response.data.error.message})
+            }
+          })
+
+}
+
   return (
     <div className="container center">
       <div className="card center z-depth-5">
@@ -78,16 +94,16 @@ const hideHistoryComponent = () => {
           
           <form>
             <div className="row">
-              <div className="input-field col s9">
+              <div className="input-field col s12 m6 l8">
                 {/* <input id="location" onBlur={e => setCityName(e.target.value)} type="text" className="validate" /> */}
                 <input id="location" ref={location} type="text" className="validate location" required />
                 <label htmlfor="location" className="">Search weather for location</label>
               </div>
-              <div className="input-field col s2">
+              <div className="input-field col s6 m3 l2">
                 {/* <a className="waves-effect waves-light btn" onClick={() => setCity()}>Show</a> */}
                 <button className="btn waves-effect waves-light" type="button" name="action" onClick={() => sendingCityNameToRedux()}>Show</button>
               </div>
-              <div className="input-field col s1">
+              <div className="input-field col s6 m3 l2">
                 {/* <a className="waves-effect waves-light btn" onClick={() => setCity()}>Show</a> */}
                 <button className="btn waves-effect waves-light" type="button" name="action" onClick={() => clearForm()}>Reset</button>
               </div>
@@ -97,9 +113,9 @@ const hideHistoryComponent = () => {
         </div>
       </div>
 
-      { showComponent != false ? <Weather cityName={location.current.value} cityWeather={cityWeather} /> : "" }
+      { showComponent !== false ? <Weather cityWeather={cityWeather} /> : "" }
 
-      { showHistoryComponent != false ? <History hideHistoryComponent={() => hideHistoryComponent()} /> : "" }
+      { showHistoryComponent !== false ? <History hideHistoryComponent={() => hideHistoryComponent()} updateSearch={updateSearch} /> : "" }
     </div>
   );
 }

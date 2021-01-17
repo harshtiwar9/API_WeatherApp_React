@@ -1,3 +1,4 @@
 [build]
 
-src = "lambda"
+functions = "lambda"
+Command = "npm run prod"

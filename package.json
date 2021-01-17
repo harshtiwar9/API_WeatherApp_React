@@ -22,7 +22,9 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "start:lambda": "netlify-lambda serve src"
+        "prod": "npm run build; npm run build:lambda",
+        "start:lambda": "netlify-lambda serve src",
+        "build:lambda": "netlify-lambda build src"
     },
     "eslintConfig": {
         "extends": [

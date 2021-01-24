@@ -1,3 +1,7 @@
 input.location {
     text-transform: capitalize;
 }
+
+#instagram-icon{
+    background: url(ig-bg.jpg) no-repeat;
+}

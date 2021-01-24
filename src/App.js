@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import './App.css';
+import 'materialize-social/css/materialize.min.css';
 import Weather from './Components/Weather/Weather'
 import History from './Components/History/History'
 import { useSelector, useDispatch } from 'react-redux';
@@ -22,10 +23,18 @@ function App() {
     var elems = document.querySelectorAll('.modal');
     window.M.Modal.init(elems);
 
+    elems = document.querySelectorAll('.tooltipped');
+    window.M.Tooltip.init(elems);
+
     var elem = document.getElementById("welcome");
     window.M.Modal.getInstance(elem).open();
 
   });
+
+  //focus Input Text
+  const focusInput = () => {
+    document.getElementById("location").focus()
+  }
 
   //adding city to store
   const addCityToList = (city) => {
@@ -99,27 +108,6 @@ function App() {
   return (
     <div className="container center">
 
-      {/* <!-- Modal Structure --> */}
-      <div id="welcome" class="modal">
-        <div class="modal-content">
-          <h4>Welcome</h4>
-          <hr />
-          <p className="center">
-            <div className="row">
-              <div className="col s12">
-                This is my first project which i had hosted online. I hope you will like it!
-              </div>
-              <div className="col s12">
-                Developed by Harsh Tiwar
-              </div>
-            </div>
-          </p>
-        </div>
-        <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
-        </div>
-      </div>
-
       <div className="card center z-depth-5">
         <span className="card-title">Weather Application</span>
         <hr />
@@ -130,7 +118,7 @@ function App() {
               <div className="input-field col s12 m6 l8">
                 {/* <input id="location" onBlur={e => setCityName(e.target.value)} type="text" className="validate" /> */}
                 <input id="location" ref={location} type="text" className="validate location" required />
-                <label htmlfor="location" className="active">Search weather for location</label>
+                <label for="location" className="active">Search weather for location</label>
               </div>
               <div className="input-field col s6 m3 l2">
                 {/* <a className="waves-effect waves-light btn" onClick={() => setCity()}>Show</a> */}
@@ -149,6 +137,51 @@ function App() {
       { showComponent !== false ? <Weather cityWeather={cityWeather} /> : ""}
 
       { showHistoryComponent !== false ? <History hideHistoryComponent={() => hideHistoryComponent()} updateSearch={updateSearch} /> : ""}
+
+      {/* <!-- Modal Structure --> */}
+      <div id="welcome" class="modal">
+        <div class="modal-content">
+          <h4>Welcome</h4>
+          <hr />
+          <p className="center">
+            <h5>
+              <div className="row">
+                <div className="col s12">
+                  This is my first project which i had hosted online. I hope you will like it!
+                </div>
+                <div className="col s12">
+                  Follow me @
+                </div>
+              </div>
+              <div className="row">
+                <div className="col s12 m4 l4">
+                  <a href="https://github.com/harshtiwar9/" target="_blank" class="waves-effect waves-light black-text btn-floating black social tooltipped" data-position="left" data-tooltip="Github">
+                    <i class="fa fa-github"></i></a>
+                  <a href="https://github.com/harshtiwar9/" target="_blank" class="blue-text waves-effect waves-green btn-flat social github">Github</a>
+                </div>
+                <div className="col s12 m4 l4">
+                  <a href="https://www.instagram.com/harsh.tiwar9/" id="instagram-icon" target="_blank" class="waves-effect waves-light btn-floating social tooltipped" data-position="left" data-tooltip="Instagram">
+                    <i class="fa fa-instagram"></i></a>
+                  <a href="https://www.instagram.com/harsh.tiwar9/" target="_blank" class="blue-text waves-effect waves-green btn-flat social instagram">Instagram</a>
+                </div><div className="col s12 m4 l4">
+                  <a href="mailto:harsh.tiwar9@gmail.com" class="waves-effect waves-light btn-floating red social tooltipped" data-position="left" data-tooltip="Email Me!">
+                    <i class="fa fa-google"></i></a>
+                  <a href="mailto:harsh.tiwar9@gmail.com" class="blue-text waves-effect waves-green btn-flat social github">Email Me</a>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col s12">
+                  <h4>Developed by <em>Harsh Tiwar</em></h4>
+                </div>
+              </div>
+            </h5>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" onClick={focusInput} class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
     </div>
   );
 }

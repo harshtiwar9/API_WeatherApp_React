@@ -159,9 +159,9 @@ function App() {
                 <a href="https://github.com/harshtiwar9/" target="_blank" class="blue-text waves-effect waves-green btn-flat social github">Github</a>
               </div>
               <div className="col s6 m4 l4">
-                <a href="https://www.instagram.com/harsh.tiwar9/" id="instagram-icon" target="_blank" class="waves-effect waves-light btn-floating social tooltipped" data-position="left" data-tooltip="Instagram">
-                  <i class="fa fa-instagram"></i></a>
-                <a href="https://www.instagram.com/harsh.tiwar9/" target="_blank" class="blue-text waves-effect waves-green btn-flat social instagram">Instagram</a>
+                <a href="https://www.linkedin.com/in/harshtiwar9/" id="linkedin" target="_blank" class="waves-effect waves-light btn-floating social tooltipped" data-position="left" data-tooltip="Linkedin">
+                  <i class="fa fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/harshtiwar9/" target="_blank" class="blue-text waves-effect waves-green btn-flat social linkedin">Linkedin</a>
               </div>
               <div className="col s6 m4 l4 center hide-on-small-only">
                 <a href="mailto:harsh.tiwar9@gmail.com" class="waves-effect waves-light btn-floating red social tooltipped" data-position="left" data-tooltip="Email Me!">
@@ -192,7 +192,7 @@ function App() {
         </a>
         <ul>
           <li><a href="https://github.com/harshtiwar9/" target="_blank" class="waves-effect waves-light black-text btn-floating black social tooltipped" data-position="left" data-tooltip="Github"><i class="fa fa-github"></i></a></li>
-          <li><a href="https://www.instagram.com/harsh.tiwar9/" id="instagram-icon" target="_blank" class="waves-effect waves-light btn-floating social tooltipped" data-position="left" data-tooltip="Instagram"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/harshtiwar9/" id="linkedin" target="_blank" class="waves-effect waves-light btn-floating social tooltipped" data-position="left" data-tooltip="Linkedin"><i class="fa fa-linkedin"></i></a></li>
           <li><a href="mailto:harsh.tiwar9@gmail.com" class="waves-effect waves-light btn-floating red social tooltipped" data-position="left" data-tooltip="Email Me!"><i class="fa fa-google"></i></a></li>
         </ul>
       </div>

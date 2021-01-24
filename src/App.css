@@ -2,6 +2,10 @@ input.location {
     text-transform: capitalize;
 }
 
-#instagram-icon{
-    background: url(ig-bg.jpg) no-repeat;
+#welcome{
+    max-height: fit-content;
+}
+
+#linkedin{
+    background-color: #0a66c2;
 }

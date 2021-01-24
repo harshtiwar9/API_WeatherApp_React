@@ -170,7 +170,7 @@ function App() {
               </div>
               <div className="row">
                 <div className="col s12">
-                  <h4>Developed by <em>Harsh Tiwar</em></h4>
+                  <h6><b>Developed by <em>Harsh Tiwar</em></b></h6>
                 </div>
               </div>
           </p>

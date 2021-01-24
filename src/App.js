@@ -21,15 +21,18 @@ function App() {
   useEffect(() => {
 
     var elems = document.querySelectorAll('.modal');
-    window.M.Modal.init(elems,{dismissible: false});
+    window.M.Modal.init(elems, { dismissible: false });
 
     elems = document.querySelectorAll('.tooltipped');
     window.M.Tooltip.init(elems);
 
+    elems = document.querySelectorAll('.fixed-action-btn');
+    window.M.FloatingActionButton.init(elems);
+
     var elem = document.getElementById("welcome");
     window.M.Modal.getInstance(elem).open();
 
-  });
+  },[]);
 
   //focus Input Text
   const focusInput = () => {
@@ -144,40 +147,57 @@ function App() {
           <h4>Welcome</h4>
           <hr />
           <p className="center">
-              <div className="row">
-                <div className="col s12">
-                  This is my first project which i had hosted online. I hope you will like it!
+            <div className="row">
+              <div className="col s12">
+                This is my first project which i had hosted online. I hope you will like it!
                 </div>
-                <div className="col s12">
-                  Follow me @
+              <div className="col s12">
+                Follow me @
                 </div>
+            </div>
+            <div className="row">
+              <div className="col s6 m4 l4">
+                <a href="https://github.com/harshtiwar9/" target="_blank" class="waves-effect waves-light black-text btn-floating black social tooltipped" data-position="left" data-tooltip="Github">
+                  <i class="fa fa-github"></i></a>
+                <a href="https://github.com/harshtiwar9/" target="_blank" class="blue-text waves-effect waves-green btn-flat social github">Github</a>
               </div>
-              <div className="row">
-                <div className="col s6 m4 l4">
-                  <a href="https://github.com/harshtiwar9/" target="_blank" class="waves-effect waves-light black-text btn-floating black social tooltipped" data-position="left" data-tooltip="Github">
-                    <i class="fa fa-github"></i></a>
-                  <a href="https://github.com/harshtiwar9/" target="_blank" class="blue-text waves-effect waves-green btn-flat social github">Github</a>
-                </div>
-                <div className="col s6 m4 l4">
-                  <a href="https://www.instagram.com/harsh.tiwar9/" id="instagram-icon" target="_blank" class="waves-effect waves-light btn-floating social tooltipped" data-position="left" data-tooltip="Instagram">
-                    <i class="fa fa-instagram"></i></a>
-                  <a href="https://www.instagram.com/harsh.tiwar9/" target="_blank" class="blue-text waves-effect waves-green btn-flat social instagram">Instagram</a>
-                </div><div className="col s12 m4 l4">
-                  <a href="mailto:harsh.tiwar9@gmail.com" class="waves-effect waves-light btn-floating red social tooltipped" data-position="left" data-tooltip="Email Me!">
-                    <i class="fa fa-google"></i></a>
-                  <a href="mailto:harsh.tiwar9@gmail.com" class="blue-text waves-effect waves-green btn-flat social github">Email Me</a>
-                </div>
+              <div className="col s6 m4 l4">
+                <a href="https://www.instagram.com/harsh.tiwar9/" id="instagram-icon" target="_blank" class="waves-effect waves-light btn-floating social tooltipped" data-position="left" data-tooltip="Instagram">
+                  <i class="fa fa-instagram"></i></a>
+                <a href="https://www.instagram.com/harsh.tiwar9/" target="_blank" class="blue-text waves-effect waves-green btn-flat social instagram">Instagram</a>
               </div>
-              <div className="row">
-                <div className="col s12">
-                  <h6><b>Developed by <em>Harsh Tiwar</em></b></h6>
-                </div>
+              <div className="col s6 m4 l4 center hide-on-small-only">
+                <a href="mailto:harsh.tiwar9@gmail.com" class="waves-effect waves-light btn-floating red social tooltipped" data-position="left" data-tooltip="Email Me!">
+                  <i class="fa fa-google"></i></a>
+                <a href="mailto:harsh.tiwar9@gmail.com" class="blue-text waves-effect waves-green btn-flat social github">Email Me</a>
               </div>
+              <div className="col s6 m4 l4 center push-s3 hide-on-med-and-up">
+                <a href="mailto:harsh.tiwar9@gmail.com" class="waves-effect waves-light btn-floating red social tooltipped" data-position="left" data-tooltip="Email Me!">
+                  <i class="fa fa-google"></i></a>
+                <a href="mailto:harsh.tiwar9@gmail.com" class="blue-text waves-effect waves-green btn-flat social github">Email Me</a>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col s12">
+                <h6><b>Developed by <em>Harsh Tiwar</em></b></h6>
+              </div>
+            </div>
           </p>
         </div>
         <div class="modal-footer">
           <a href="#!" onClick={focusInput} class="modal-close waves-effect waves-green btn-flat">Close</a>
         </div>
+      </div>
+
+      <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red">
+          <i class="large material-icons">perm_identity</i>
+        </a>
+        <ul>
+          <li><a href="https://github.com/harshtiwar9/" target="_blank" class="waves-effect waves-light black-text btn-floating black social tooltipped" data-position="left" data-tooltip="Github"><i class="fa fa-github"></i></a></li>
+          <li><a href="https://www.instagram.com/harsh.tiwar9/" id="instagram-icon" target="_blank" class="waves-effect waves-light btn-floating social tooltipped" data-position="left" data-tooltip="Instagram"><i class="fa fa-instagram"></i></a></li>
+          <li><a href="mailto:harsh.tiwar9@gmail.com" class="waves-effect waves-light btn-floating red social tooltipped" data-position="left" data-tooltip="Email Me!"><i class="fa fa-google"></i></a></li>
+        </ul>
       </div>
 
     </div>

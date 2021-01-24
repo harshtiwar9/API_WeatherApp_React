@@ -144,7 +144,7 @@ function App() {
       {/* <!-- Modal Structure --> */}
       <div id="welcome" class="modal">
         <div class="modal-content">
-          <h4>Welcome</h4>
+          <h4>Welcome <a href="#!" onClick={focusInput} className="black-text"><i class="material-icons modal-close right">close</i></a></h4>
           <hr />
           <p className="center">
             <div className="row">

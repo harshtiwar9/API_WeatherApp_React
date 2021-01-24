@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
 
     var elems = document.querySelectorAll('.modal');
-    window.M.Modal.init(elems);
+    window.M.Modal.init(elems,{dismissible: false});
 
     elems = document.querySelectorAll('.tooltipped');
     window.M.Tooltip.init(elems);
@@ -144,7 +144,6 @@ function App() {
           <h4>Welcome</h4>
           <hr />
           <p className="center">
-            <h5>
               <div className="row">
                 <div className="col s12">
                   This is my first project which i had hosted online. I hope you will like it!
@@ -154,12 +153,12 @@ function App() {
                 </div>
               </div>
               <div className="row">
-                <div className="col s12 m4 l4">
+                <div className="col s6 m4 l4">
                   <a href="https://github.com/harshtiwar9/" target="_blank" class="waves-effect waves-light black-text btn-floating black social tooltipped" data-position="left" data-tooltip="Github">
                     <i class="fa fa-github"></i></a>
                   <a href="https://github.com/harshtiwar9/" target="_blank" class="blue-text waves-effect waves-green btn-flat social github">Github</a>
                 </div>
-                <div className="col s12 m4 l4">
+                <div className="col s6 m4 l4">
                   <a href="https://www.instagram.com/harsh.tiwar9/" id="instagram-icon" target="_blank" class="waves-effect waves-light btn-floating social tooltipped" data-position="left" data-tooltip="Instagram">
                     <i class="fa fa-instagram"></i></a>
                   <a href="https://www.instagram.com/harsh.tiwar9/" target="_blank" class="blue-text waves-effect waves-green btn-flat social instagram">Instagram</a>
@@ -174,7 +173,6 @@ function App() {
                   <h4>Developed by <em>Harsh Tiwar</em></h4>
                 </div>
               </div>
-            </h5>
           </p>
         </div>
         <div class="modal-footer">

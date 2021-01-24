@@ -32,7 +32,7 @@ function App() {
     var elem = document.getElementById("welcome");
     window.M.Modal.getInstance(elem).open();
 
-  },[]);
+  }, []);
 
   //focus Input Text
   const focusInput = () => {
@@ -149,11 +149,8 @@ function App() {
           <p className="center">
             <div className="row">
               <div className="col s12">
-                Hosted first project online. I hope you will like it!
-                </div>
-              <div className="col s12">
-                Follow me @
-                </div>
+                Hosted first project online. I hope you will like it! Follow me @
+              </div>
             </div>
             <div className="row">
               <div className="col s6 m4 l4">

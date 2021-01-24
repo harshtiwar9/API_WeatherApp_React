@@ -149,7 +149,7 @@ function App() {
           <p className="center">
             <div className="row">
               <div className="col s12">
-                This is my first project which i had hosted online. I hope you will like it!
+                Hosted first project online. I hope you will like it!
                 </div>
               <div className="col s12">
                 Follow me @

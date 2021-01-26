@@ -35,7 +35,7 @@ function App() {
     console.log(process.env.SECRET_API_KEY)
     console.log(process.env)
     console.log(process)
-    console.log(env)
+    console.log(SECRET_API_KEY)
 
   }, []);
 

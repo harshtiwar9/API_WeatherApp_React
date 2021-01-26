@@ -33,6 +33,8 @@ function App() {
     window.M.Modal.getInstance(elem).open();
 
     console.log(process.env.SECRET_API_KEY)
+    console.log(process.env)
+    console.log(process)
 
   }, []);
 

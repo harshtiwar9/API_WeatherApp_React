@@ -32,6 +32,8 @@ function App() {
     var elem = document.getElementById("welcome");
     window.M.Modal.getInstance(elem).open();
 
+    console.log(process.env.SECRET_API_KEY)
+
   }, []);
 
   //focus Input Text

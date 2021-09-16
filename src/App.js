@@ -14,16 +14,7 @@ function App() {
   let updatedHistory = useSelector(state => state.history);
 
   const location = useRef();
-  // const dbUrl = "http://api.weatherapi.com/v1/forecast.json?key=ad07e8abec5d42c693e205826200811";
-  const dbUrl = "http://api.weatherapi.com/v1/forecast.json?key="+process.env.SECRET_API_KEY;
-  console.log(process)
-  console.log(process.env)
-  console.log(process.env.SECRET_API_KEY)
-  console.log(process.env.API_KEY)
-  console.log(env.API_KEY)
-  console.log(API_KEY)
-  console.log(env.SECRET_API_KEY)
-  console.log(SECRET_API_KEY)
+  const dbUrl = "http://api.weatherapi.com/v1/forecast.json?key=ad07e8abec5d42c693e205826200811";
   const dispatch = useDispatch();
 
   //Initialize Welcome Model

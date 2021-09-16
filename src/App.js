@@ -20,6 +20,10 @@ function App() {
   console.log(process.env)
   console.log(process.env.SECRET_API_KEY)
   console.log(process.env.API_KEY)
+  console.log(env.API_KEY)
+  console.log(API_KEY)
+  console.log(env.SECRET_API_KEY)
+  console.log(SECRET_API_KEY)
   const dispatch = useDispatch();
 
   //Initialize Welcome Model

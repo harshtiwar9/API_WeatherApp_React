@@ -15,7 +15,7 @@ function App() {
 
   const location = useRef();
   // const dbUrl = "http://api.weatherapi.com/v1/forecast.json?key=ad07e8abec5d42c693e205826200811";
-  const dbUrl = "http://api.weatherapi.com/v1/forecast.json?key="+process.env.API_KEY;
+  const dbUrl = "http://api.weatherapi.com/v1/forecast.json?key="+process.env.SECRET_API_KEY;
   const dispatch = useDispatch();
 
   //Initialize Welcome Model
